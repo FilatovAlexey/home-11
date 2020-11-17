@@ -32,7 +32,7 @@ search.addEventListener('click', (event) => {
       url = api + 'people/?search=';
       input.value = '';
     })
-
+    //test comment
     .catch((error) => console.log('ERROR'));
 });
 
