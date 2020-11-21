@@ -15,9 +15,11 @@
   <div class="content">
 
     <div class="search">
-      <div class="search_form"><label>Поиск персонажа: <input type="text" class="person_search"
-            id="person_search_input"> </label>
-        <button id="search_request_btn" class="button">Найти</button></div>
+      <form action="#" method="GET" class="search_form">
+        <label for="person_search_input">Поиск персонажа:</label>
+        <input type="text" class="person_search" id="person_search_input">
+        <button type="submit" id="search_request_btn" class="button">Найти</button>
+      </form>
       <ul class="search_result">
       </ul>
     </div>
