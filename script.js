@@ -15,22 +15,24 @@ form.onsubmit = function () {
   let url = api + 'people/?search=';
   url += input.value;
 
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => {
+  async function fetchAsync() {
+    try {
+      let response = await fetch(url);
+      let data = await response.json();
       let results = data.results;
-
       for (key in results) {
         let item = createListItem(results);
         fragmentList.append(item);
       }
       searchResult.append(fragmentList);
       input.value = '';
-    })
-    //test commit
-    .catch((error) => console.log('ERROR'));
-};
+    } catch (e) {
+      console.error(e);
+    }
+  }
 
+  fetchAsync();
+};
 searchResult.addEventListener('click', (ev) => {
   let target = ev.target;
   if (target.className == 'search_element') {
